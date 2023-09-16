@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<robot name="my_rb1_robot">
+
+    <!-- LINKS  -->
+
+    <!-- parent -->
+    <link name="base_footprint">
+    </link>
+
+    <!-- base -->
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <cylinder length="0.30" radius="0.25" />
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 0.5" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <cylinder length="0.3" radius="0.25" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <!-- units in kilograms -->
+            <mass value="21" />
+            <!-- inertial tensors for solid cylinder -->
+            <inertia
+                ixx="0.4856" ixy="0.0" ixz="0.0"
+                iyy="0.4856" iyz="0.0"
+                izz="0.6563"
+            />
+        </inertial>
+    </link>
+
+    <!-- right wheel -->
+    <link name="right_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5707 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <cylinder length="0.02" radius="0.025" />
+            </geometry>
+            <material name="red">
+                <color rgba="1 0 0 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.5707 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <cylinder length="0.02" radius="0.025" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <!-- units in kilograms -->
+            <mass value="1" />
+            <!-- inertial tensors for solid cylinder -->
+            <inertia
+                ixx="0.0001896" ixy="0.0" ixz="0.0"
+                iyy="0.0001896" iyz="0.0"
+                izz="0.0003125"
+            />
+        </inertial>
+    </link>
+
+    <!-- left wheel -->
+    <link name="left_wheel">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.5707 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <cylinder length="0.02" radius="0.025" />
+            </geometry>
+            <material name="red">
+                <color rgba="1 0 0 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.5707 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <cylinder length="0.02" radius="0.025" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <!-- units in kilograms -->
+            <mass value="1" />
+            <!-- inertial tensors for solid cylinder -->
+            <inertia
+                ixx="0.0001896" ixy="0.0" ixz="0.0"
+                iyy="0.0001896" iyz="0.0"
+                izz="0.0003125"
+            />
+        </inertial>
+    </link>
+
+    <!-- front caster -->
+    <link name="front_caster">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <sphere radius="0.025" />
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <sphere radius="0.025" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <!-- units in kilograms -->
+            <mass value="1" />
+            <!-- inertial tensors for solid cylinder -->
+            <inertia
+                ixx="0.0004167" ixy="0.0" ixz="0.0"
+                iyy="0.0004167" iyz="0.0"
+                izz="0.0004167"
+            />
+        </inertial>
+    </link>
+
+    <!-- back caster -->
+    <link name="back_caster">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <sphere radius="0.025" />
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <sphere radius="0.025" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <!-- units in kilograms -->
+            <mass value="1" />
+            <!-- inertial tensors for solid cylinder -->
+            <inertia
+                ixx="0.0004167" ixy="0.0" ixz="0.0"
+                iyy="0.0004167" iyz="0.0"
+                izz="0.0004167"
+            />
+        </inertial>
+    </link>
+
+    <!-- front laser -->
+    <link name="front_laser">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <!-- assumed solid cuboid as geometry for the sensor -->
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 1 0 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- units in meters -->
+                <box size="0.01 0.01 0.01" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <!-- units in kilograms -->
+            <!-- assumed negligible mass for the sensor -->
+            <mass value="0.001" />
+            <!-- inertial tensors for solid cuboid -->
+            <inertia
+                ixx="0.000000016667" ixy="0.0" ixz="0.0"
+                iyy="0.000000016667" iyz="0.0"
+                izz="0.000000016667"
+            />
+        </inertial>
+    </link>
+
+    <!-- JOINTS -->
+
+    <!-- base_footprint to base_link joint -->
+    <joint name="joint_parent_to_base" type="fixed">
+        <parent link="base_footprint" />
+        <child link="base_link" />
+        <origin xyz="0 0 0.15" rpy="0 0 0" />
+    </joint>
+
+    <!-- base_link to right_wheel joint -->
+    <joint name="joint_base_to_right_wheel" type="continuous">
+        <parent link="base_link" />
+        <child link="right_wheel" />
+        <origin xyz="0.0 -0.2 -0.15" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <!-- base_link to left_wheel joint -->
+    <joint name="joint_base_to_left_wheel" type="continuous">
+        <parent link="base_link" />
+        <child link="left_wheel" />
+        <origin xyz="0.0 0.2 -0.15" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <!-- base_link to front_caster joint -->
+    <joint name="joint_base_to_front_caster" type="fixed">
+        <parent link="base_link" />
+        <child link="front_caster" />
+        <origin xyz="0.1 0 -0.15" rpy="0 0 0" />
+    </joint>
+
+    <!-- base_link to back_caster joint -->
+    <joint name="joint_base_to_back_caster" type="fixed">
+        <parent link="base_link" />
+        <child link="back_caster" />
+        <origin xyz="-0.1 0 -0.15" rpy="0 0 0" />
+    </joint>
+
+    <!-- base_link to front_laser joint -->
+    <joint name="joint_base_to_front_laser" type="fixed">
+        <parent link="base_link" />
+        <child link="front_laser" />
+        <origin xyz="0.25 0 0.075" rpy="3.14159 0 0" />
+    </joint>
+
+    <!-- GAZEBO -->
+
+    <!-- properties for right_wheel -->
+    <gazebo reference="right_wheel">
+        <mu1>1</mu1>
+        <mu2>1</mu2>
+    </gazebo>
+
+    <!-- properties for left_wheel -->
+    <gazebo reference="left_wheel">
+        <mu1>1</mu1>
+        <mu2>1</mu2>
+    </gazebo>
+
+    <!-- properties for front_caster -->
+    <gazebo reference="front_caster">
+        <preserveFixedJoint>true</preserveFixedJoint>
+        <mu1>0</mu1>
+        <mu2>0</mu2>
+    </gazebo>
+
+    <!-- properties for back_caster -->
+    <gazebo reference="back_caster">
+        <preserveFixedJoint>true</preserveFixedJoint>
+        <mu1>0</mu1>
+        <mu2>0</mu2>
+    </gazebo>
+
+</robot>
