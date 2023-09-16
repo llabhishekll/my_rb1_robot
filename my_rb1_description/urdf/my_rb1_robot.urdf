@@ -250,6 +250,11 @@
 
     <!-- GAZEBO -->
 
+    <!-- properties for base_link -->
+    <gazebo reference="base_link">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
     <!-- properties for right_wheel -->
     <gazebo reference="right_wheel">
         <mu1>1</mu1>
