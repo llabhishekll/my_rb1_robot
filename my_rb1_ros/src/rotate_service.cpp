@@ -29,9 +29,15 @@ private:
                         my_rb1_message::Rotate::Response &response) {
     ROS_INFO("/rotate_robot request (degress : %d)", request.degrees);
 
-    // direction of movement and angular distance (theta) in radians
+    // fix: no movement if request is 360 degree
+    if (std::abs(request.degrees) == 360) {
+      response.result = "success : rotation not required";
+      return true;
+    }
+
+    // direction of movement and angular distance (theta) in degree
     double direction = request.degrees / std::abs(request.degrees);
-    double theta = std::abs((M_PI / 180) * request.degrees);
+    double theta = std::abs(request.degrees);
 
     // intial values of odometer
     double yaw_prime = this->yaw;
@@ -64,7 +70,9 @@ private:
     double w = msg->pose.pose.orientation.w;
     // convert quaternion into euler angles
     // as an alternatie tf can also be used.
-    this->yaw = std::atan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z));
+    double yaw = std::atan2(2.0 * (w * z + x * y), 1.0 - 2.0 * (y * y + z * z));
+    // fix: radian to degree conversions
+    this->yaw = (180 / M_PI) * yaw;
   }
 
   void publisher_call(double angular_z = 0.1, double direction = -1) {
