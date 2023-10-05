@@ -22,7 +22,19 @@ Target is to create a working robot using the URDF, defining all the required li
 │   ├── launch
 │   │   └── my_rb1_robot_warehouse.launch
 │   └── package.xml
-└── readme.md
+├── my_rb1_message
+│   ├── CMakeLists.txt
+│   ├── package.xml
+│   └── srv
+│       └── Rotate.srv
+├── my_rb1_ros
+│   ├── CMakeLists.txt
+│   ├── launch
+│   │   └── rotate_service.launch
+│   ├── package.xml
+│   └── src
+│       └── rotate_service.cpp
+└── README.md
 ```
 
 ## Setup
